@@ -10,6 +10,10 @@ class UsersController < ApplicationController
     redirect_to user_path(user)
   end
 
+  def show
+    @user = User.find_by_id(params[:id])
+  end
+
   private
 
   def user_params
