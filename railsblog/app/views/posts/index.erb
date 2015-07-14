@@ -1,6 +1,7 @@
 <% @posts.each do |post| %>
-  <div><%= link_to post.title, post_path(post) %> | <%= link_to "Edit", edit_post_path(post) %> | <%= link_to "Delete", post, method: :delete %>
+  <div><%= link_to post.title, user_post_path(post.user_id, post.id) %> | <%= link_to "Edit", edit_user_post_path(post.user_id, post.id) %> | <%#= link_to "Delete", user_post, method: :delete %>
   </div>
 <% end %>
 
-<%= link_to "Add new post", new_post_path %>
+<% #link_to "Add new post", new_user_post_path %>
+<%= link_to "Signup", new_user_path %>
