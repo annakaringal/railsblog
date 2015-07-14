@@ -1,14 +1,19 @@
 class PostsController < ApplicationController
+  def all
+    @posts = Post.all
+  end
   def index
     @posts = Post.where(user_id: params[:user_id])
   end
 
   def new
     @post = Post.new
+    @user = User.find_by_id(params[:user])
   end
 
   def create
     post = Post.new(post_params)
+    post.user_id = params[:user_id]
     post.save!
     redirect_to root_path
   end
